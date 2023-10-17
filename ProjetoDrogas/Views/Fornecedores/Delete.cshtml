@@ -1,0 +1,32 @@
+﻿@model ProjetoDrogas.Models.Fornecedor
+
+@{
+    ViewData["Title"] = "Apagar";
+}
+
+<h1>APAGAR FORNECEDOR</h1>
+
+<h3 class="alert alert-danger p-2">Você realmente tem certeza de que deseja apagar essa compra, truta?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cnpj)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cnpj)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="FornecedorId" />
+        <input type="submit" value="Apagar" class="btn btn-danger" /> |
+        <a asp-action="Index">Voltar a lista</a>
+    </form>
+</div>

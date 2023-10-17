@@ -1,0 +1,45 @@
+﻿@model ProjetoDrogas.Models.ItemCompra
+
+@{
+    ViewData["Title"] = "Apagar";
+    var id = ViewData["idCompra"];
+}
+
+<h1>APAGAR ITEM</h1>
+
+<h3 class="alert alert-danger p-2">Você realmente tem certeza de que deseja apagar essa compra, truta?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Compras)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Compras.Nota)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Produtos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Produtos.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Quantidade)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Quantidade)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Preco)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Preco)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ItemCompraId" />
+        <input type="submit" value="Apagar" class="btn btn-danger" /> |
+        <a asp-action="Index" asp-route-id="@Model.CompraId">Voltar a lista</a>
+    </form>
+</div>

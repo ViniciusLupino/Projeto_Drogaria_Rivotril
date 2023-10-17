@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ProjetoDrogas.Models.Compra>
+
+@{
+    ViewData["Title"] = "Compras";
+}
+
+<h1>Compras</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Adicionar compra</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Horario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fornecedores)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Horario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fornecedores.Nome)
+            </td>
+            <td>
+                    <a asp-action="Index" asp-controller="ItemCompras" asp-route-id="@item.CompraId" class="btn btn-secondary">PRODUTO</a> |
+                    <a asp-action="Edit" asp-route-id="@item.CompraId" class="btn btn-primary">NOTA</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

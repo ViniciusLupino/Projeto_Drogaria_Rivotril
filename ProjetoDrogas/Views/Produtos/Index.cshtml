@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ProjetoDrogas.Models.Produto>
+
+@{
+    ViewData["Title"] = "Produtos";
+}
+
+<h1>PRODUTOS</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Adicionar produto</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Preco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categorias)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categorias.Nome)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProdutoId" class="btn btn-primary">Editar</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProdutoId" class="btn btn-danger">Apagar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
